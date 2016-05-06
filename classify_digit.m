@@ -9,7 +9,7 @@ class = 0;
 % of pmf hogs
 for i=1:M
     diff = kl_divergence(pmf_hog,HOG_Database(i,:));
-    if (diff < best_score && diff < espilion)
+    if (diff > 0 - espilion && diff < espilion && diff < best_score)
         best_score = diff;
         class = i;
     end
