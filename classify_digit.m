@@ -4,10 +4,12 @@ function class  = classify_digit( pmf_hog,HOG_Database,espilion )
 
 best_score = 100;
 class = 0;
-[M ~] = size(HOG_Database);
+[M, ~] = size(HOG_Database);
+% do a brute force comparison between queyr pmf hog and the entire database
+% of pmf hogs
 for i=1:M
-    diff = kl_divergence(pmf_p,HOG_Database(i,:));
-    if (diff < best_score)
+    diff = kl_divergence(pmf_hog,HOG_Database(i,:));
+    if (diff < best_score && diff < espilion)
         best_score = diff;
         class = i;
     end

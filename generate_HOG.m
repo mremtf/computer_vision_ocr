@@ -6,14 +6,14 @@ function [ HOG ] = generate_HOG(input_image, nbins )
 % nbins the number of bins
 
 % allocate HOG 
-HOG = zeros(nbins,1);
+HOG = zeros(1,nbins);
 % calculate x and y gradients
 [Gx, Gy] = imgradientxy(input_image);
 % calculate the magnitude and orientation
 [Gmag, Gdir] = imgradient(Gx, Gy);
 % store in correct bins based on orientation and add magnitude to bin
 
-[M ~] = size(Gmag);
+[M, N] = size(Gmag);
 
 for i = 1:M
    for j = 1:N
@@ -22,7 +22,7 @@ for i = 1:M
         % correct orientation
         orientation = Gdir(i,j) + 180;
         % find bucket to store into HOG
-		bucket = floor(orientation/36);
+		bucket = floor(orientation/36) + 1;
         % Update HOG
 		HOG(:,bucket) = HOG(:,bucket) + Gmag(i,j);
     end

@@ -70,6 +70,7 @@ end
 
 %if para.demo, plot(E); title('entropy plot'); end % plot entropy
 [~,ma] = min(E); mi = ang(ma); % get minimum entropy
+mi = 180;
 fprintf('Angle: %f\n',ma); % output the angle
 e_t = [cos(i*mi/180);sin(i*mi/180)]; % projection vector
 e = [-sin(i*mi/180);cos(i*mi/180)]; % illumination vector

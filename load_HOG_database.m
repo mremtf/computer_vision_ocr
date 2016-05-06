@@ -21,7 +21,7 @@ digit_8_gray = rgb2gray(digit_8);
 digit_9 = imread('database_digits/9.png');
 digit_9_gray = rgb2gray(digit_9);
 
-HOG_Database = zeros(bins,9);
+HOG_Database = zeros(9,bins);
 % fill the HOGS for our no shadow images
 
 HOG_Database(1,:) = generate_HOG(digit_1_gray,bins);
