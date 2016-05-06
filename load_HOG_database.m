@@ -3,5 +3,6 @@ function [ output_args ] = load_HOG_database( input_args )
 %   Detailed explanation goes here
 
 
+
 end
 
