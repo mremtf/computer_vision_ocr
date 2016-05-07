@@ -22,7 +22,7 @@ for i = 1:M
         % correct orientation
         orientation = Gdir(i,j) + 180;
         % find bucket to store into HOG
-		bucket = floor(orientation/36) + 1;
+		bucket = floor(orientation/10) + 1;
         % Update HOG
 		HOG(:,bucket) = HOG(:,bucket) + Gmag(i,j);
     end

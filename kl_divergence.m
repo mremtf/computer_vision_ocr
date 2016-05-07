@@ -13,7 +13,7 @@ sum_diff = 0;
 valid_diff = 0;
 for i=1 : N1
     if Q(:,i) ~= 0 && P(:,i) ~= 0
-        sum_diff = sum_diff + P(:,i) * log(P(:,i) ./ Q(:,i));
+        sum_diff = sum_diff + P(:,i) .* log(P(:,i) ./ Q(:,i));
         valid_diff = 1;
     end
 end
